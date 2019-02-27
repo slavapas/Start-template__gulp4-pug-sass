@@ -1,0 +1,54 @@
+// Customs mixins here
+
+
+
+// Media mixin
+$breakpoints: (xs: 576px, sm: 768px, md: 992px, lg:1200)
+
+// max-width
+@mixin media($breakpoint)
+  @if map-has-key($breakpoints, $breakpoint)
+    $breakpoint-value: map-get($breakpoints, $breakpoint)
+    @media screen and (max-width: ($breakpoint-value - 1))
+      @content;
+  @else
+    @warn 'Invalid breakpoint: #{$breakpoint}.'
+
+// min-width
+@mixin media_($breakpoint)
+	@if map-has-key($breakpoints, $breakpoint)
+		$breakpoint-value: map-get($breakpoints, $breakpoint)
+		@media screen and (min-width: $breakpoint-value)
+			@content;
+	@else
+    @warn 'Invalid breakpoint: #{$breakpoint}.'
+
+// min-width and max-width
+@mixin media-($lower,	$upper)
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper)
+		$lower-breakpoint: map-get($breakpoints, $lower)
+		$upper-breakpoint: map-get($breakpoints, $upper)
+
+		@media screen and  (min-width: $lower-breakpoint)	and	(max-width: ($upper-breakpoint - 1))
+			@content;
+	@else
+		@if (map-has-key($breakpoints, $lower) == false)
+			@warn 'Your lower breakpoint was invalid: #{$lower}.'
+		@if (map-has-key($breakpoints, $upper) == false)
+			@warn 'Your upper breakpoint was invalid: #{$upper}.'
+	
+
+
+// Include fonts
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false )
+	@font-face
+		font-family: $font-family
+		font-weight: $weight
+		font-style: $style
+
+		@if $asset-pipeline == true 
+			src: font-url('#{$file-path}.eot')
+			src: font-url('#{$file-path}.eot?#iefix') format('embedded-opentype'), font-url('#{$file-path}.woff') format('woff'), font-url('#{$file-path}.ttf') format('truetype')
+		@else
+			src: url('#{$file-path}.eot')
+			src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype')
