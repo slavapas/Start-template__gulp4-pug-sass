@@ -1,7 +1,7 @@
 let svgSprite = require('gulp-svg-sprite'),
-    svgmin = require('gulp-svgmin'),
-    cheerio = require('gulp-cheerio'),
-    replace = require('gulp-replace'),
+    svgmin 		= require('gulp-svgmin'),
+    cheerio 	= require('gulp-cheerio'),
+    replace 	= require('gulp-replace'),
     svgPath = {
         "input": "./dev/static/images/svg/*.svg",
         "output": "./assets/images/svg/"

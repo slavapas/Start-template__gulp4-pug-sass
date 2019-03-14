@@ -1,10 +1,10 @@
-let plumber = require('gulp-plumber'),
-    pug = require('gulp-pug'),
-    pugInheritance = require('gulp-pug-inheritance'),
-    changed = require('gulp-changed'),
-    cached = require('gulp-cached'),
-    gulpif = require('gulp-if'),
-    filter = require('gulp-filter');
+let plumber 				= require('gulp-plumber'),
+    pug 						= require('gulp-pug'),
+    pugInheritance	= require('gulp-pug-inheritance'),
+    changed 				= require('gulp-changed'),
+    cached 					= require('gulp-cached'),
+    gulpif 					= require('gulp-if'),
+    filter 					= require('gulp-filter');
 
 module.exports = function () {		
 		$.gulp.task('pug', () => {

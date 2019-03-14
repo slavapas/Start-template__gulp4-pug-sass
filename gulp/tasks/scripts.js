@@ -1,5 +1,5 @@
-let uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
+let uglify 			= require('gulp-uglify'),
+    concat 			= require('gulp-concat'),
     scriptsPATH = {
 				"input": "./dev/static/js/",
 				"output": "./assets/js"

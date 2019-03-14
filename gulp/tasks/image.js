@@ -1,6 +1,6 @@
-let imagemin = require('gulp-imagemin'),
-    imageminJpegRecompress = require('imagemin-jpeg-recompress'),
-    cache = require('gulp-cache'),
+let imagemin 								= require('gulp-imagemin'),
+    imageminJpegRecompress 	= require('imagemin-jpeg-recompress'),
+    cache 									= require('gulp-cache'),
     imgPATH = {
 				"input": ["./dev/static/images/**/*.{png,jpg,gif,JPG,PNG,GIF}"],
         "output": "./assets/images/"
